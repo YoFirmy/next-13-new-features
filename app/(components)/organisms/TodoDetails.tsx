@@ -24,6 +24,10 @@ interface TodoDetailsProps {
 export default async function TodoDetails({ id }: TodoDetailsProps) {
   const todoDetails: Todo = await getTodoDetails(id);
 
+  // * use this if generateStaticParams can't be used
+  // const todoDetails: {} | Todo = await getTodoDetails(id);
+  // if (!("title" in todoDetails)) return notFound();
+
   return (
     <TodoCard
       id={todoDetails.id}
