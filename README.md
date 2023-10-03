@@ -4,7 +4,15 @@
 
 Previously to Next 13 to create a homepage you created a file named 'index.tsx'. With the new Next directory we do the same thing but instead call the file 'page.tsx'.
 
-Previously to create a route we could create a file by the name of the path we want to create. eg. 'about.tsx' creates a path '/about'. With Next 13 this does not work and instead we have to create a directory and place a file 'page.tsx within that. eg. 'about/page.tsx' creates the path '/about'.
+Previously to create a route we could create a file by the name of the path we want to create. eg. 'about.tsx' creates a path '/about'. With Next 13 this does not work and instead we have to create a directory and place a file 'page.tsx' within that. eg. 'about/page.tsx' creates the path '/about'.
+
+We can also create a layout within a routes directory. The default export from 'layout.tsx' will automatically be passed the page as the children prop. If you have a 'layout.tsx' file directly within the app directory then this will be a default layout for all pages. To override this layout you simply add a 'layout.tsx' to the directory for the specific page. If there are nested routes within the directory you have created a layout for then they will also adopt this layout.
+
+You can also create error pages in the same way as layout. To create a custom 404 page you simply do so within a file named 'not-found.tsx'. Again if you wish to override this custom 404 page you do so the same way as you would for layout.
+
+In order to create a dynamic route, very similar to how the pages directory works, you have to create a directory with the name in square brackets. eg. 'products/[id]/page.tsx' will create a page at the path 'products/42' (where 42 could be any string, and will get passed as a property of the param object, which is automatically passed to the page component).
+
+You can also create directories with parenthesis around the name which have no effect on the path. This is useful for structuring the app directory in a readable way, and also because some things you want to create within the app directory but don't want to potentially create a page/route/path. This is true for Server components which you can read about below.
 
 ## Server components
 
