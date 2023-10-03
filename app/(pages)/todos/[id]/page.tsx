@@ -1,5 +1,4 @@
 import TodoDetails, { Todo } from "@/app/(components)/organisms/TodoDetails";
-import React from "react";
 
 export const dynamicParams = false;
 

@@ -1,5 +1,3 @@
-import React from "react";
-
 interface TodoCardProps {
   id: number;
   title: string;
