@@ -2,6 +2,9 @@ import TodoCard from "@/app/(components)/molecules/TodoCard";
 import { Todo } from "@/app/(components)/organisms/TodoDetails";
 
 const getTodoList = async () => {
+  // imitate delay
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const res = await fetch("https://jsonplaceholder.typicode.com/todos", {
     next: {
       revalidate: 30, // setting to 0 will not cache the data.

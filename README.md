@@ -8,7 +8,7 @@ Previously to create a route we could create a file by the name of the path we w
 
 We can also create a layout within a routes directory. The default export from 'layout.tsx' will automatically be passed the page as the children prop. If you have a 'layout.tsx' file directly within the app directory then this will be a default layout for all pages. To override this layout you simply add a 'layout.tsx' to the directory for the specific page. If there are nested routes within the directory you have created a layout for then they will also adopt this layout.
 
-You can also create error pages in the same way as layout. To create a custom 404 page you simply do so within a file named 'not-found.tsx'. Again if you wish to override this custom 404 page you do so the same way as you would for layout.
+You can also create error pages in the same way as layout. To create a custom 404 page you simply do so within a file named 'not-found.tsx'. Again if you wish to override this custom 404 page you do so the same way as you would for layout. There are other special files such as loading.tsx that work in a similar way.
 
 In order to create a dynamic route, very similar to how the pages directory works, you have to create a directory with the name in square brackets. eg. 'products/[id]/page.tsx' will create a page at the path 'products/42' (where 42 could be any string, and will get passed as a property of the param object, which is automatically passed to the page component).
 
@@ -32,6 +32,8 @@ more reading:
 ## Suspense boundaries
 
 We can now use suspense boundaries to render a page on the client while still fetching data on the server, allowing for only the components that need that data to show a loading state.
+
+To create a suspense boundary simply import the Suspense component from react and wrap any components which use fetch. Then pass the component you want to render instead of the component which is loading to the fallback prop in the Suspense component.
 
 ## Other new bits
 
