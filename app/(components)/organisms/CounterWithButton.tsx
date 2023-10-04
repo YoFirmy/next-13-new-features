@@ -1,9 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { PropsWithChildren, ReactNode, useState } from "react";
 
-export default function CounterWithButton() {
+interface CounterWithButtonProps {
+  serverComponent: ReactNode;
+}
+
+// export default function CounterWithButton({
+//   serverComponent,
+// }: CounterWithButtonProps) {
+export default function CounterWithButton({ children }: PropsWithChildren) {
   const [counter, setCounter] = useState(0);
+
+  console.log(`I'm inside a client component!`);
 
   return (
     <div className="flex flex-col gap-2 mt-5">
@@ -20,6 +29,8 @@ export default function CounterWithButton() {
       >
         decrease counter
       </button>
+      {children}
+      {/* {serverComponent} */}
     </div>
   );
 }

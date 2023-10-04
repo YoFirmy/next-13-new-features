@@ -26,6 +26,8 @@ Crucially this does mean, no more emotion styled components (for now). These com
 
 Server components are the default within the app directory, meaning if you want to make efficient components the component directory should be inside the app directory (My least favourite part of Next 13). If you wish to define a client component within this directory then you need to add the pragma 'use client' at the top of the file you are defining the component within.
 
+If you wish to nest a server component inside a client component, you can! But there are some limitations. If you simply import a server component to a client component like you would previous to Next 13, then that server component will default to a client component. Instead you can pass in the server component as either children or as a prop to the client component and that way it will still get built on the server.
+
 more reading:
 <https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns>
 
