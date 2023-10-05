@@ -22,7 +22,7 @@ Client components are still needed for anything that handles state, effects, rou
 Server components are also better for handling sensitive information because it's hidden away on the server.
 Server components can also be async functions, meaning that fetching data within them is far easier.
 
-Crucially this does mean, no more emotion styled components (for now). These components get rendered on the client, so if you're using a server component they will not work. If you want a Next 13 project with emotion styled components in, you will have to use the pages directory.
+Crucially this does mean we can not use emotion within server components (for now). Emotion styled components and css-in-js get rendered on the client, so if you're using a server component they will not work. There is a work around to use emotion within the app directory however it will only work within client components. This could still be useful for switching existing projects over to the app directory without having to refactor styling, and then when emotion have implemented support for server components then these components can be swapped to server components.
 
 Server components are the default within the app directory, meaning if you want to make efficient components the component directory should be inside the app directory (My least favourite part of Next 13). If you wish to define a client component within this directory then you need to add the pragma 'use client' at the top of the file you are defining the component within.
 
